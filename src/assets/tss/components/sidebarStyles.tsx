@@ -1,0 +1,76 @@
+import { makeStyles } from '@material-ui/core';
+
+const sidebarStyles = makeStyles((theme) => ({
+  wrapper: {
+    width: '300px',
+    minHeight: '100vh',
+    position: 'fixed',
+    display: 'flex',
+    flexDirection: 'column',
+    top: 0,
+    left: 0,
+    border: 'none',
+    backgroundColor: theme.palette.primary.light,
+  },
+  title: {
+    color: '#FFF',
+    height: 70,
+    borderBottom: '1px solid rgb(218, 210, 210)',
+    backgroundColor: theme.palette.primary.dark,
+    alignItems: 'center',
+    paddingLeft: theme.spacing(4),
+  },
+  sidebarWrapper: {
+    position: 'relative',
+    height: '100vh',
+    overflow: 'auto',
+    width: 300,
+    zIndex: 4,
+  },
+  list: {
+    marginTop: '20px',
+    paddingLeft: '0',
+    paddingTop: '0',
+    paddingBottom: '0',
+    marginBottom: '0',
+    listStyle: 'none',
+    position: 'unset',
+    width: '100%',
+  },
+  item: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    textDecoration: 'none',
+    color: 'whitesmoke',
+    padding: theme.spacing(1),
+  },
+  itemIcon: {
+    width: '24px',
+    height: '30px',
+    fontSize: '24px',
+    lineHeight: '30px',
+    float: 'left',
+    marginRight: '15px',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+  },
+  itemText: {
+    margin: '0',
+    lineHeight: '30px',
+    fontSize: '18px',
+    whiteSpace: 'nowrap',
+  },
+  itemLink: {
+    width: '95%',
+    transition: 'all 300ms linear',
+    margin: '0 15px',
+    borderRadius: '3px',
+    position: 'relative',
+    display: 'flex',
+    padding: '10px 15px',
+    backgroundColor: 'transparent',
+  },
+}));
+
+export default sidebarStyles;

@@ -7,7 +7,7 @@ import
   Chat,
 } from '@material-ui/icons';
 
-import LoginPage from './views/Pages/LoginPage';
+import LoginPage from './views/Pages/Login/LoginPage';
 import DashboardPage from './views/Dashboard/DashboardPage';
 import RegisterPage from './views/Pages/RegisterPage';
 import UsersPage from './views/Users/UsersPage';

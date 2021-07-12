@@ -17,7 +17,7 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     loginSuccess: (state, action: PayloadAction<string>) => {
-      sessionStorage.setItem('token', action.payload);
+      sessionStorage.setItem('token', JSON.stringify(action.payload));
       return {
         ...state,
         token: action.payload,

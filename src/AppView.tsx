@@ -10,7 +10,7 @@ function AppView(): React.ReactElement {
     <Switch>
       <Route path="/admin" component={Admin} />
       <Route path="/auth" component={Auth} />
-      <Redirect from="/" to="/admin/dashboard" />
+      <Redirect from="/" to="/auth/login" />
     </Switch>
   );
 }

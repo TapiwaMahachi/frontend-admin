@@ -31,7 +31,7 @@ const hexToRgb = (input: string): string => {
       parseInt(last, 16)}`
   );
 };
-
+const drawerWidth = 260;
 const primaryColor = ['#9c27b0', '#ab47bc', '#8e24aa', '#af2cc5'];
 const warningColor = ['#ff9800', '#ffa726', '#fb8c00', '#ffa21a'];
 const dangerColor = ['#f44336', '#ef5350', '#e53935', '#f55a4e'];
@@ -149,6 +149,7 @@ const roseCardHeader = {
 export
 {
   hexToRgb,
+  drawerWidth,
   successCardHeader,
   primaryCardHeader,
   roseCardHeader,

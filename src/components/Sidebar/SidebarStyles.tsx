@@ -1,31 +1,105 @@
-import { makeStyles } from '@material-ui/core';
+import { createStyles, Theme, StyleRules } from '@material-ui/core';
+import
+{
+  drawerWidth,
+  grayColor,
+  hexToRgb,
+  whiteColor,
+} from '../../globalStyles';
 
-const sidebarStyles = makeStyles((theme) => ({
-  wrapper: {
-    width: '300px',
-    minHeight: '100vh',
+const sidebarStyles = ({ breakpoints, palette }: Theme)
+  : StyleRules<string> => createStyles({
+  drawerPaper: {
+    width: drawerWidth,
     position: 'fixed',
     display: 'flex',
     flexDirection: 'column',
     top: 0,
     left: 0,
+    bottom: 0,
     border: 'none',
-    backgroundColor: theme.palette.primary.light,
+    zIndex: 1,
+    background: palette.primary.light,
+    [breakpoints.up('md')]: {
+      width: drawerWidth,
+      position: 'fixed',
+      height: '100%',
+    },
+    [breakpoints.down('sm')]: {
+      width: drawerWidth,
+      position: 'fixed',
+      display: 'block',
+      top: '0',
+      height: '100vh',
+      left: 'auto',
+      right: '0',
+      zIndex: '1032',
+      visibility: 'visible',
+      overflowY: 'visible',
+      borderTop: 'none',
+      textAlign: 'left',
+      paddingRight: '0px',
+      paddingLeft: '0',
+      transform: `translate3d(${drawerWidth}px, 0, 0)`,
+    },
   },
   title: {
     color: '#FFF',
     height: 70,
     borderBottom: '1px solid rgb(218, 210, 210)',
-    backgroundColor: theme.palette.primary.dark,
     alignItems: 'center',
-    paddingLeft: theme.spacing(4),
   },
   sidebarWrapper: {
     position: 'relative',
-    height: '100vh',
+    height: 'calc(100vh - 75px)',
     overflow: 'auto',
-    width: 300,
+    width: '260px',
     zIndex: 4,
+    WebkitOverflowScrolling: 'touch',
+  },
+  logo: {
+    position: 'relative',
+    padding: '15px 15px',
+    zIndex: 4,
+    backgroundColor: palette.primary.dark,
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      bottom: '0',
+
+      height: '1px',
+      right: '15px',
+      width: 'calc(100% - 30px)',
+      backgroundColor: `rgba(${hexToRgb(grayColor[6])}, 0.3)`,
+    },
+  },
+  logoLink: {
+    textTransform: 'uppercase',
+    padding: '5px 0',
+    display: 'block',
+    fontSize: '18px',
+    textAlign: 'left',
+    fontWeight: 400,
+    lineHeight: '30px',
+    textDecoration: 'none',
+    backgroundColor: 'transparent',
+    '&,&:hover': {
+      color: whiteColor,
+    },
+  },
+  logoImage: {
+    width: '30px',
+    display: 'inline-block',
+    maxHeight: '30px',
+    marginLeft: '10px',
+    marginRight: '15px',
+  },
+  img: {
+    width: '35px',
+    top: '22px',
+    position: 'absolute',
+    verticalAlign: 'middle',
+    border: '0',
   },
   list: {
     marginTop: '20px',
@@ -43,7 +117,6 @@ const sidebarStyles = makeStyles((theme) => ({
     alignItems: 'center',
     textDecoration: 'none',
     color: 'whitesmoke',
-    padding: theme.spacing(1),
   },
   itemIcon: {
     width: '24px',
@@ -71,6 +144,5 @@ const sidebarStyles = makeStyles((theme) => ({
     padding: '10px 15px',
     backgroundColor: 'transparent',
   },
-}));
-
+});
 export default sidebarStyles;

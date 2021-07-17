@@ -97,33 +97,3 @@ function Sidebar({ routes, classes }: SidebarProps): React.ReactElement {
 }
 
 export default withStyles(sidebarStyles)(Sidebar);
-
-// const oldSidebar = (
-//    <div className={classes.wrapper}>
-//       <div className={classes.title}>
-//         <h1>Admin Site</h1>
-//       </div>
-//       <br />
-//       <div className={classes.sidebarWrapper}>
-//         <List className={classes.list}>
-//           {routes.filter((props) => props.layout === '/admin')
-//             .map((prop) => (
-//               <NavLink
-//                 key={prop.path}
-//                 className={classes.item}
-//                 activeClassName="active"
-//                 activeStyle={{
-//                   backgroundColor: '#21a1c4',
-//                 }}
-//                 to={prop.layout + prop.path}
-//               >
-//                 <ListItem button className={classes.itemLink}>
-//                   <prop.icon className={classes.itemIcon} />
-//                   <h2 className={classes.itemText}>{prop.name}</h2>
-//                 </ListItem>
-//               </NavLink>
-//             ))}
-//         </List>
-//       </div>
-//     </div>
-// )

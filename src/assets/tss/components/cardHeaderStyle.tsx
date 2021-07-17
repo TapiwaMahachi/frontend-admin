@@ -63,7 +63,7 @@ function cardHeaderStyle(): StyleRules<string> {
       },
     },
     cardHeaderIcon: {
-      '&$successCardHeader': {
+      '&$successCardHeader,&$dangerCardHeader': {
         background: 'transparent',
         boxShadow: 'none',
       },

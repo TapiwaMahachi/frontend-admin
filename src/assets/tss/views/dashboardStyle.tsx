@@ -31,7 +31,7 @@ function dashboardStyle(): StyleRules<string> {
     cardCategory: {
       color: grayColor[0],
       margin: '0',
-      fontSize: '14px',
+      fontSize: '18px',
       marginTop: '0',
       paddingTop: '10px',
       marginBottom: '0',

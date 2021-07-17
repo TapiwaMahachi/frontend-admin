@@ -31,6 +31,12 @@ const hexToRgb = (input: string): string => {
       parseInt(last, 16)}`
   );
 };
+
+const defaultFont = {
+  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontWeight: 300,
+  lineHeight: '1.5em',
+};
 const drawerWidth = 260;
 const primaryColor = ['#9c27b0', '#ab47bc', '#8e24aa', '#af2cc5'];
 const warningColor = ['#ff9800', '#ffa726', '#fb8c00', '#ffa21a'];
@@ -156,6 +162,7 @@ const container = {
 export
 {
   hexToRgb,
+  defaultFont,
   drawerWidth,
   successCardHeader,
   primaryCardHeader,
@@ -163,8 +170,10 @@ export
   infoCardHeader,
   warningCardHeader,
   dangerCardHeader,
+  primaryColor,
   grayColor,
   whiteColor,
   blackColor,
   container,
+  primaryBoxShadow,
 };

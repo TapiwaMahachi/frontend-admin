@@ -7,6 +7,7 @@ import {
 import { WithStyles, withStyles } from '@material-ui/core/styles';
 
 import navbarStyles from './Navbarstyles';
+import AdminNavbarLinks from './AdminNavbarLinks';
 
 function Navbar({ classes }: WithStyles): React.ReactElement {
   return (
@@ -18,7 +19,7 @@ function Navbar({ classes }: WithStyles): React.ReactElement {
           </Button>
         </div>
         <Hidden smDown implementation="css">
-          <div>Navbar links</div>
+          <AdminNavbarLinks />
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton

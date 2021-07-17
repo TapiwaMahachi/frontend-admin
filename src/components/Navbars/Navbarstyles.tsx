@@ -1,8 +1,4 @@
 import { createStyles } from '@material-ui/core';
-import
-{
-  container,
-} from '../../globalStyles';
 
 const navbarStyles = createStyles({
   appBar: {
@@ -14,8 +10,11 @@ const navbarStyles = createStyles({
     borderRadius: '3px',
   },
   container: {
-    ...container,
+    paddingTop: '15px',
+    paddingBottom: '15px',
     minHeight: '50px',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   flex: {
     flex: 1,

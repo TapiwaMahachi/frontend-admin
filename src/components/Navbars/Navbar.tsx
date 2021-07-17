@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import { Menu, AccountCircle } from '@material-ui/icons';
 
-import navbarStyles from '../../assets/tss/components/navbarstyles';
+import navbarStyles from './Navbarstyles';
 
 function Navbar(): React.ReactElement {
   const classes = navbarStyles();

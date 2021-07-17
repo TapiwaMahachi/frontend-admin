@@ -3,7 +3,7 @@ import
 {
   successCardHeader,
   whiteColor,
-} from '../globalStyles';
+} from '../../globalStyles';
 
 function cardHeaderStyle(): StyleRules<string> {
   return createStyles({

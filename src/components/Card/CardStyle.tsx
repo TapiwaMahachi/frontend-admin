@@ -7,7 +7,7 @@ import
   blackColor,
   whiteColor,
   hexToRgb,
-} from '../globalStyles';
+} from '../../globalStyles';
 
 function cardStyle() {
   return createStyles({

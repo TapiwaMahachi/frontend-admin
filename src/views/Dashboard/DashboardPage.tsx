@@ -12,7 +12,7 @@ import CardIcon from '../../components/Card/CardIcon';
 import GridContainer from '../../components/Grid/GridContainer';
 import GridItem from '../../components/Grid/GridItem';
 
-import dashboardStyle from '../../assets/tss/views/dashboardStyle';
+import dashboardStyle from './DashboardStyle';
 
 function Dashboard({ classes }: WithStyles): React.ReactElement {
   return (

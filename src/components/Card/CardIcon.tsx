@@ -4,7 +4,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { WithStyles, withStyles } from '@material-ui/core/styles';
 
-import cardIconStyle from '../../assets/tss/components/cardIconStyle';
+import cardIconStyle from './CardIconStyle';
 
 interface cardIconProps extends WithStyles
 {

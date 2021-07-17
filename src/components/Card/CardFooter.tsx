@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { WithStyles, withStyles } from '@material-ui/core/styles';
 
-import cardFooterStyle from '../../assets/tss/components/cardFooterStlye';
+import cardFooterStyle from './CardFooterStlye';
 
 interface cardFooterProps extends WithStyles
 {

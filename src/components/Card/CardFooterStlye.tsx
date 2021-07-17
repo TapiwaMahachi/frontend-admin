@@ -2,7 +2,7 @@ import { createStyles, StyleRules } from '@material-ui/core/styles';
 import
 {
   grayColor,
-} from '../globalStyles';
+} from '../../globalStyles';
 
 function cardFooterStyle(): StyleRules<string> {
   return createStyles({

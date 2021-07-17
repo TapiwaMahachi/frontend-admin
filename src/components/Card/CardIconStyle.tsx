@@ -10,7 +10,7 @@ import
   infoCardHeader,
   dangerCardHeader,
   grayColor,
-} from '../globalStyles';
+} from '../../globalStyles';
 
 function cardIconStyle() {
   return createStyles({

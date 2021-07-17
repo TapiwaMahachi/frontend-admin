@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import routes from '../routes';
-import authStyles from '../assets/tss/layouts/authStyles';
+import authStyles from './AuthStyles';
 
 function Auth(): React.ReactElement {
   const classes = authStyles();

@@ -22,7 +22,7 @@ import
 import { login } from './LoginRedux';
 import { useAppDispatch } from '../../../redux/hooks';
 
-import loginPageStyle from '../../../assets/tss/views/loginPageStyle';
+import loginPageStyle from './LoginPageStyle';
 
 function LoginPage(): React.ReactElement {
   const classes = loginPageStyle();

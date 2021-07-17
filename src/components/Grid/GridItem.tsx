@@ -14,7 +14,7 @@ interface GridItemProps extends WithStyles
 function GridItem({ children, classes }: GridItemProps)
     : React.ReactElement {
   return (
-    <Grid item className={classes.grid} md={3}>
+    <Grid item className={classes.grid} xs={12} sm={6} md={3}>
       {children}
     </Grid>
   );

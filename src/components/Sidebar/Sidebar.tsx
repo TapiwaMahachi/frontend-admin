@@ -2,7 +2,7 @@ import React from 'react';
 import { List, ListItem } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 
-import sidebarStyles from '../../assets/tss/components/sidebarStyles';
+import sidebarStyles from './SidebarStyles';
 import type { routeTypes } from '../../routes';
 
 interface sidebarProps

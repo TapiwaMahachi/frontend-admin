@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from '../components/Navbars/Navbar';
 import Sidebar from '../components/Sidebar/Sidebar';
 
-import adminStyles from '../assets/tss/layouts/adminStyles';
+import adminStyles from './AdminStyles';
 import routes from '../routes';
 
 function Admin(): React.ReactElement {

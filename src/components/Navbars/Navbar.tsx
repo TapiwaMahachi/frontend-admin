@@ -1,27 +1,36 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
-import { Menu, AccountCircle } from '@material-ui/icons';
+import { Menu } from '@material-ui/icons';
+import {
+  AppBar, Button, Hidden, Toolbar,
+} from '@material-ui/core';
+import { WithStyles, withStyles } from '@material-ui/core/styles';
 
 import navbarStyles from './Navbarstyles';
 
-function Navbar(): React.ReactElement {
-  const classes = navbarStyles();
+function Navbar({ classes }: WithStyles): React.ReactElement {
   return (
-    <div className={classes.nav}>
-      <IconButton
-        color="primary"
-        aria-label="hamburger menu"
-      >
-        <Menu />
-      </IconButton>
-      <IconButton
-        aria-label="user account"
-        color="primary"
-      >
-        <AccountCircle />
-      </IconButton>
-    </div>
+    <AppBar className={classes.appBar}>
+      <Toolbar className={classes.container}>
+        <div className={classes.flex}>
+          <Button className={classes.title}>
+            Brand
+          </Button>
+        </div>
+        <Hidden smDown implementation="css">
+          <div>Navbar links</div>
+        </Hidden>
+        <Hidden mdUp implementation="css">
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+          >
+            <Menu />
+          </IconButton>
+        </Hidden>
+      </Toolbar>
+    </AppBar>
   );
 }
 
-export default Navbar;
+export default withStyles(navbarStyles)(Navbar);

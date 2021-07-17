@@ -145,6 +145,13 @@ const roseCardHeader = {
     `linear-gradient(60deg, ${roseColor[1]}, ${roseColor[2]})`,
   ...roseBoxShadow,
 };
+const container = {
+  paddingRight: '15px',
+  paddingLeft: '15px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+
+};
 
 export
 {
@@ -159,4 +166,5 @@ export
   grayColor,
   whiteColor,
   blackColor,
+  container,
 };

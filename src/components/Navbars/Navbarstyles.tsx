@@ -1,18 +1,36 @@
-import { makeStyles } from '@material-ui/core';
+import { createStyles } from '@material-ui/core';
+import
+{
+  container,
+} from '../../globalStyles';
 
-const navbarStyles = makeStyles((theme) => ({
-  nav: {
-    position: 'fixed',
-    width: 'calc(100% - 300px)',
-    height: 70,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottom: '1px solid rgb(218, 210, 210)',
-    top: 0,
-    right: 0,
-
+const navbarStyles = createStyles({
+  appBar: {
+    background: 'transparent',
+    boxShadow: 'none',
+    position: 'absolute',
+    width: '100%',
+    zIndex: 1000,
+    borderRadius: '3px',
   },
-}));
+  container: {
+    ...container,
+    minHeight: '50px',
+  },
+  flex: {
+    flex: 1,
+  },
+  title: {
+    lineHeight: '30px',
+    fontSize: '18px',
+    borderRadius: '3px',
+    textTransform: 'none',
+    color: 'inherit',
+    margin: '0',
+    '&:hover,&:focus': {
+      background: 'transparent',
+    },
+  },
+});
 
 export default navbarStyles;

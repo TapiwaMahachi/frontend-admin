@@ -9,11 +9,24 @@ import routes from '../routes';
 
 function Admin(): React.ReactElement {
   const classes = adminStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerToggle = (): void => {
+    setOpen(!open);
+  };
   return (
     <div className={classes.wrapper}>
-      <Sidebar routes={routes} />
+      <Sidebar
+        routes={routes}
+        handleDrawerToggle={handleDrawerToggle}
+        open={open}
+
+      />
       <div className={classes.mainPanel}>
-        <Navbar />
+        <Navbar
+          handleDrawerToggle={handleDrawerToggle}
+          routes={routes}
+        />
         <div className={classes.content}>
           <Switch>
             {routes.filter((props) => props.layout === '/admin')

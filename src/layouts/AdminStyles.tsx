@@ -1,24 +1,31 @@
-import { makeStyles } from '@material-ui/core';
+import { createStyles, StyleRules, Theme } from '@material-ui/core/styles';
+import { drawerWidth, container } from '../globalStyles';
 
-const adminStyles = makeStyles((theme) => ({
+const adminStyles = ({ breakpoints }: Theme)
+  : StyleRules<string> => createStyles({
   wrapper: {
     position: 'relative',
     top: 0,
     height: '100vh',
   },
   mainPanel: {
-    width: 'calc(100% - 300px)',
+    [breakpoints.up('md')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    overflow: 'auto',
+    width: '100%',
+    overflowScrolling: 'touch',
     position: 'relative',
     float: 'right',
-    minHeight: '100vh',
+    maxHeight: '100%',
     top: 0,
   },
   content: {
-    width: '100%',
-    height: '100%',
-    padding: theme.spacing(1),
+    padding: '30px 15px',
+    minHeight: 'calc(100vh - 123px)',
     marginTop: '70px',
   },
-}));
+  container,
+});
 
 export default adminStyles;

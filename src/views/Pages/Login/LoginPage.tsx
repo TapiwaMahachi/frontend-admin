@@ -3,14 +3,14 @@ import { useHistory } from 'react-router-dom';
 import
 {
   FormControl,
-  InputLabel,
-  Input,
+  OutlinedInput,
   InputAdornment,
   IconButton,
   Button,
   Card,
   CardContent,
   CardActions,
+  CardHeader,
 } from '@material-ui/core';
 import
 {
@@ -18,20 +18,21 @@ import
   Visibility,
   LockOpen,
 } from '@material-ui/icons';
+import { WithStyles, withStyles } from '@material-ui/core/styles';
 
 import { login } from './LoginRedux';
 import { useAppDispatch } from '../../../redux/hooks';
 
 import loginPageStyle from './LoginPageStyle';
 
-function LoginPage(): React.ReactElement {
-  const classes = loginPageStyle();
+function LoginPage({ classes }: WithStyles): React.ReactElement {
   const dispatch = useAppDispatch();
   const history = useHistory();
   const [details, setDetails] = React.useState({
     email: '',
     password: '',
   });
+  const [error, setError] = React.useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     setDetails({
@@ -50,15 +51,16 @@ function LoginPage(): React.ReactElement {
     });
   };
   return (
-    <Card className={classes.card}>
+    <div className={classes.card}>
       <div className={classes.header}>
         <h1>Admin</h1>
       </div>
       <CardContent>
         <form className={classes.form} onSubmit={handleSubmit}>
           <FormControl className={classes.inputControl}>
-            <InputLabel>Email</InputLabel>
-            <Input
+            <OutlinedInput
+              error={error}
+              placeholder="Enter Email"
               name="email"
               value={details.email}
               onChange={handleChange}
@@ -75,8 +77,9 @@ function LoginPage(): React.ReactElement {
             />
           </FormControl>
           <FormControl>
-            <InputLabel>Password</InputLabel>
-            <Input
+            <OutlinedInput
+              error={error}
+              placeholder="Enter Password"
               name="password"
               type="password"
               value={details.password}
@@ -94,9 +97,11 @@ function LoginPage(): React.ReactElement {
           </FormControl>
           <CardActions className={classes.btnContainer}>
             <Button
+              className={classes.button}
               color="primary"
-              variant="outlined"
+              variant="contained"
               type="submit"
+              size="large"
               startIcon={<LockOpen />}
             >
               Login
@@ -104,8 +109,8 @@ function LoginPage(): React.ReactElement {
           </CardActions>
         </form>
       </CardContent>
-    </Card>
+    </div>
   );
 }
 
-export default LoginPage;
+export default withStyles(loginPageStyle)(LoginPage);

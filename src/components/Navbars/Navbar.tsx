@@ -1,8 +1,8 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
+import classNames from 'classnames';
 import { Menu } from '@material-ui/icons';
 import {
-  AppBar, Button, Hidden, Toolbar,
+  AppBar, Button, Hidden, Toolbar, IconButton,
 } from '@material-ui/core';
 import { WithStyles, withStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
@@ -14,10 +14,14 @@ import { routeTypes } from '../../routes';
 interface NavbarProps extends WithStyles
 {
   handleDrawerToggle: () => void,
-  routes : routeTypes
+  handleClick: ()=>void,
+  routes: routeTypes
+  drawerOpen: boolean,
 }
 
-function Navbar({ routes, classes, handleDrawerToggle }
+function Navbar({
+  routes, classes, handleDrawerToggle, handleClick, drawerOpen,
+}
   : NavbarProps): React.ReactElement {
   const location = useLocation();
 
@@ -32,8 +36,18 @@ function Navbar({ routes, classes, handleDrawerToggle }
     return name;
   }
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar className={classNames(classes.appBar, {
+      [classes.appBarShift]: drawerOpen,
+    })}
+    >
       <Toolbar className={classes.container}>
+        <Hidden smDown implementation="css">
+          <IconButton
+            onClick={handleClick}
+          >
+            <Menu />
+          </IconButton>
+        </Hidden>
         <div className={classes.flex}>
           <Button className={classes.title}>
             {makeBrand()}

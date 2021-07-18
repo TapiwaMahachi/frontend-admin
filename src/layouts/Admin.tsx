@@ -10,9 +10,13 @@ import routes from '../routes';
 
 function Admin({ classes }: WithStyles): React.ReactElement {
   const [open, setOpen] = React.useState(false);
+  const [drawerOpen, setDrawerOpen] = React.useState(true);
 
   const handleDrawerToggle = (): void => {
     setOpen(!open);
+  };
+  const handleClick = (): void => {
+    setDrawerOpen(!drawerOpen);
   };
   return (
     <div className={classes.wrapper}>
@@ -20,11 +24,14 @@ function Admin({ classes }: WithStyles): React.ReactElement {
         routes={routes}
         handleDrawerToggle={handleDrawerToggle}
         open={open}
+        drawerOpen={drawerOpen}
 
       />
       <div className={classes.mainPanel}>
         <Navbar
           handleDrawerToggle={handleDrawerToggle}
+          handleClick={handleClick}
+          drawerOpen={drawerOpen}
           routes={routes}
         />
         <div className={classes.content}>

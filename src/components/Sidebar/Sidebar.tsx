@@ -19,15 +19,16 @@ interface SidebarProps extends WithStyles
 {
   routes: routeTypes,
   open: boolean,
+  drawerOpen: boolean,
   handleDrawerToggle: ()=>void,
 }
 function Sidebar({
   routes,
   classes,
   open,
+  drawerOpen,
   handleDrawerToggle,
-}
-  : SidebarProps): React.ReactElement {
+}: SidebarProps): React.ReactElement {
   const links = (
     <List className={classes.list}>
       {routes.map((prop) => (
@@ -57,15 +58,10 @@ function Sidebar({
 
   const brand = (
     <div className={classes.logo}>
-      <a
-        className={classes.logoLink}
-        href="/"
-      >
-        <div className={classes.logoImage}>
-          <HomeIcon className={classes.img} />
-        </div>
-        Admin
-      </a>
+      <div className={classes.logoImage}>
+        <HomeIcon className={classes.img} />
+      </div>
+      <h1 className={classes.logoText}>Admin</h1>
     </div>
   );
 
@@ -92,8 +88,15 @@ function Sidebar({
       </Hidden>
       <Hidden smDown implementation="css">
         <Drawer
+          className={classNames({
+            [classes.drawerPaper]: drawerOpen,
+            [classes.drawerClose]: !drawerOpen,
+          })}
           classes={{
-            paper: classNames(classes.drawerPaper),
+            paper: classNames({
+              [classes.drawerPaper]: drawerOpen,
+              [classes.drawerClose]: !drawerOpen,
+            }),
           }}
           variant="permanent"
           anchor="left"

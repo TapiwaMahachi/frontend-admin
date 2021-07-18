@@ -1,13 +1,34 @@
-import { createStyles } from '@material-ui/core';
+import { createStyles, StyleRules, Theme } from '@material-ui/core';
+import zIndex from '@material-ui/core/styles/zIndex';
+import { drawerWidth } from '../../globalStyles';
 
-const navbarStyles = createStyles({
+const navbarStyles = ({ transitions }: Theme)
+  : StyleRules<string> => createStyles({
+  // appBar: {
+  //   background: 'transparent',
+  //   boxShadow: 'none',
+  //   position: 'absolute',
+  //   width: '100%',
+  //   zIndex: 1000,
+  //   borderRadius: '3px',
+  // },
   appBar: {
+    zIndex: zIndex.drawer + 1,
     background: 'transparent',
     boxShadow: 'none',
-    position: 'absolute',
-    width: '100%',
-    zIndex: 1000,
-    borderRadius: '3px',
+    marginLeft: '25px',
+    transition: transitions.create(['width', 'margin'], {
+      easing: transitions.easing.sharp,
+      duration: transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: transitions.create(['width', 'margin'], {
+      easing: transitions.easing.sharp,
+      duration: transitions.duration.enteringScreen,
+    }),
   },
   container: {
     paddingTop: '15px',

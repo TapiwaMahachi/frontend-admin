@@ -7,7 +7,9 @@ import
   whiteColor,
 } from '../../globalStyles';
 
-const sidebarStyles = ({ breakpoints, palette }: Theme)
+const sidebarStyles = ({
+  breakpoints, palette, transitions, spacing,
+}: Theme)
   : StyleRules<string> => createStyles({
   drawerPaper: {
     width: drawerWidth,
@@ -20,6 +22,10 @@ const sidebarStyles = ({ breakpoints, palette }: Theme)
     border: 'none',
     zIndex: 1,
     background: palette.primary.light,
+    transition: transitions.create('width', {
+      easing: transitions.easing.sharp,
+      duration: transitions.duration.enteringScreen,
+    }),
     [breakpoints.up('md')]: {
       width: drawerWidth,
       position: 'fixed',
@@ -43,6 +49,22 @@ const sidebarStyles = ({ breakpoints, palette }: Theme)
       transform: `translate3d(${drawerWidth}px, 0, 0)`,
     },
   },
+  drawerClose: {
+    transition: transitions.create('width', {
+      easing: transitions.easing.sharp,
+      duration: transitions.duration.leavingScreen,
+    }),
+    border: 'none',
+    background: palette.primary.light,
+    overflow: 'hidden',
+    width: spacing(5),
+    [breakpoints.up('sm')]: {
+      width: spacing(8),
+    },
+    '& h1': {
+      display: 'none',
+    },
+  },
   title: {
     color: '#FFF',
     height: 70,
@@ -60,7 +82,11 @@ const sidebarStyles = ({ breakpoints, palette }: Theme)
   logo: {
     position: 'relative',
     padding: '15px 15px',
+    display: 'flex',
+    alignItems: 'center',
+    height: '70px',
     zIndex: 4,
+    color: whiteColor,
     backgroundColor: palette.primary.dark,
     '&:after': {
       content: '""',
@@ -73,19 +99,8 @@ const sidebarStyles = ({ breakpoints, palette }: Theme)
       backgroundColor: `rgba(${hexToRgb(grayColor[6])}, 0.3)`,
     },
   },
-  logoLink: {
-    textTransform: 'uppercase',
-    padding: '5px 0',
-    display: 'block',
-    fontSize: '18px',
-    textAlign: 'left',
-    fontWeight: 400,
-    lineHeight: '30px',
-    textDecoration: 'none',
-    backgroundColor: 'transparent',
-    '&,&:hover': {
-      color: whiteColor,
-    },
+  logoText: {
+    margin: '0',
   },
   logoImage: {
     width: '30px',
@@ -96,7 +111,7 @@ const sidebarStyles = ({ breakpoints, palette }: Theme)
   },
   img: {
     width: '35px',
-    top: '22px',
+    top: '25px',
     position: 'absolute',
     verticalAlign: 'middle',
     border: '0',

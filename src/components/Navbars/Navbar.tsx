@@ -5,17 +5,38 @@ import {
   AppBar, Button, Hidden, Toolbar,
 } from '@material-ui/core';
 import { WithStyles, withStyles } from '@material-ui/core/styles';
+import { useLocation } from 'react-router-dom';
 
 import navbarStyles from './Navbarstyles';
 import AdminNavbarLinks from './AdminNavbarLinks';
+import { routeTypes } from '../../routes';
 
-function Navbar({ classes }: WithStyles): React.ReactElement {
+interface NavbarProps extends WithStyles
+{
+  handleDrawerToggle: () => void,
+  routes : routeTypes
+}
+
+function Navbar({ routes, classes, handleDrawerToggle }
+  : NavbarProps): React.ReactElement {
+  const location = useLocation();
+
+  function makeBrand(): string {
+    let name = '';
+    routes.map((prop) => {
+      if (prop.layout + prop.path === location.pathname) {
+        name = prop.name;
+      }
+      return null;
+    });
+    return name;
+  }
   return (
     <AppBar className={classes.appBar}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           <Button className={classes.title}>
-            Brand
+            {makeBrand()}
           </Button>
         </div>
         <Hidden smDown implementation="css">
@@ -25,6 +46,7 @@ function Navbar({ classes }: WithStyles): React.ReactElement {
           <IconButton
             color="inherit"
             aria-label="open drawer"
+            onClick={handleDrawerToggle}
           >
             <Menu />
           </IconButton>

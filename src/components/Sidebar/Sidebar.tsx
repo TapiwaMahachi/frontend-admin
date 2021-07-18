@@ -17,9 +17,17 @@ import type { routeTypes } from '../../routes';
 
 interface SidebarProps extends WithStyles
 {
-  routes: routeTypes
+  routes: routeTypes,
+  open: boolean,
+  handleDrawerToggle: ()=>void,
 }
-function Sidebar({ routes, classes }: SidebarProps): React.ReactElement {
+function Sidebar({
+  routes,
+  classes,
+  open,
+  handleDrawerToggle,
+}
+  : SidebarProps): React.ReactElement {
   const links = (
     <List className={classes.list}>
       {routes.map((prop) => (
@@ -67,8 +75,13 @@ function Sidebar({ routes, classes }: SidebarProps): React.ReactElement {
         <Drawer
           variant="temporary"
           anchor="right"
+          open={open}
           classes={{
             paper: classNames(classes.drawerPaper),
+          }}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // better open perfomance on mobile
           }}
         >
           {brand}

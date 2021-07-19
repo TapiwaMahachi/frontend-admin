@@ -2,21 +2,14 @@ import { createStyles, StyleRules, Theme } from '@material-ui/core';
 import zIndex from '@material-ui/core/styles/zIndex';
 import { drawerWidth } from '../../globalStyles';
 
-const navbarStyles = ({ transitions }: Theme)
+const navbarStyles = ({ transitions, breakpoints }: Theme)
   : StyleRules<string> => createStyles({
-  // appBar: {
-  //   background: 'transparent',
-  //   boxShadow: 'none',
-  //   position: 'absolute',
-  //   width: '100%',
-  //   zIndex: 1000,
-  //   borderRadius: '3px',
-  // },
   appBar: {
     zIndex: zIndex.drawer + 1,
     background: 'transparent',
     boxShadow: 'none',
     marginLeft: '25px',
+    paddingLeft: '40px',
     transition: transitions.create(['width', 'margin'], {
       easing: transitions.easing.sharp,
       duration: transitions.duration.leavingScreen,
@@ -29,6 +22,10 @@ const navbarStyles = ({ transitions }: Theme)
       easing: transitions.easing.sharp,
       duration: transitions.duration.enteringScreen,
     }),
+    [breakpoints.down('sm')]: {
+      width: '100%',
+    },
+    paddingLeft: '0px',
   },
   container: {
     paddingTop: '15px',

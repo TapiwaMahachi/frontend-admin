@@ -44,6 +44,8 @@ function Navbar({
         <Hidden smDown implementation="css">
           <IconButton
             onClick={handleClick}
+            title="open drawer"
+            aria-label="open-drawer"
           >
             <Menu />
           </IconButton>
@@ -59,7 +61,8 @@ function Navbar({
         <Hidden mdUp implementation="css">
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label="open-drawer"
+            title="open drawer"
             onClick={handleDrawerToggle}
           >
             <Menu />

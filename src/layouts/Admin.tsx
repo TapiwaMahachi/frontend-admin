@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
-
+import classNames from 'classnames';
 import Navbar from '../components/Navbars/Navbar';
 import Sidebar from '../components/Sidebar/Sidebar';
 
@@ -20,14 +20,18 @@ function Admin({ classes }: WithStyles): React.ReactElement {
   };
   return (
     <div className={classes.wrapper}>
+
       <Sidebar
         routes={routes}
         handleDrawerToggle={handleDrawerToggle}
         open={open}
         drawerOpen={drawerOpen}
-
       />
-      <div className={classes.mainPanel}>
+
+      <div className={classNames(classes.appBar, {
+        [classes.appBarShift]: drawerOpen,
+      })}
+      >
         <Navbar
           handleDrawerToggle={handleDrawerToggle}
           handleClick={handleClick}

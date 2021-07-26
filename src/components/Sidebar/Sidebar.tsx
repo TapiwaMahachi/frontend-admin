@@ -88,7 +88,7 @@ function Sidebar({
       </Hidden>
       <Hidden smDown implementation="css">
         <Drawer
-          className={classNames({
+          className={classNames(classes.drawer, {
             [classes.drawerPaper]: drawerOpen,
             [classes.drawerClose]: !drawerOpen,
           })}

@@ -49,6 +49,11 @@ const sidebarStyles = ({
       transform: `translate3d(${drawerWidth}px, 0, 0)`,
     },
   },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+  },
   drawerClose: {
     transition: transitions.create('width', {
       easing: transitions.easing.sharp,
@@ -106,7 +111,7 @@ const sidebarStyles = ({
     width: '30px',
     display: 'inline-block',
     maxHeight: '30px',
-    marginLeft: '10px',
+    marginLeft: '0px',
     marginRight: '15px',
   },
   img: {
@@ -139,7 +144,7 @@ const sidebarStyles = ({
     fontSize: '24px',
     lineHeight: '30px',
     float: 'left',
-    marginRight: '15px',
+    marginRight: '20px',
     textAlign: 'center',
     verticalAlign: 'middle',
   },
@@ -153,6 +158,7 @@ const sidebarStyles = ({
     width: '95%',
     transition: 'all 300ms linear',
     margin: '0 15px',
+    marginLeft: '5px',
     borderRadius: '3px',
     position: 'relative',
     display: 'flex',
